@@ -1,0 +1,119 @@
+@import './colors.less'; 
+
+@logo-size: 80px;
+@header-height: 120px;
+
+.header {
+    box-shadow: 0 0 30px @dark-gray;
+    height: @header-height;
+    background: @black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transform: translateY(0);
+    transition: transform .5s ease-in-out;
+
+    .header__content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .header__logo {
+            flex: 0 0 @logo-size;
+            height: @logo-size;
+            stroke: @white;
+        }
+    
+        .header__nav {
+            flex: 1 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header__contacts {
+            flex: 0 0 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            height: 100%;
+
+            background: @yellow;
+            clip-path: polygon(0 0, 20% 100%, 100% 100%, 80% 0%);
+            color: @black;
+            font-size: 18px;
+            
+            &__item {
+                margin-left: -10px;
+                margin-top: 8px;
+            }
+            &__item.number {
+                margin-left: 10px;
+                font-weight: bold;
+                color: black;
+            }
+
+            &__item:first-child {
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+.header.hidden {
+    transform: translateY(-@header-height);
+}
+
+.first-block {
+    background: @black;
+    height:@header-height;
+}
+
+@media all and (max-width: 600px) {
+    @logo-size: 40px;
+    @header-height: 60px;
+
+    .header {
+        height: @header-height;
+        background: @black;
+
+        .header__content {
+            padding: 0px 16px;
+            justify-content: space-around;
+
+            .header__logo {
+                display: none;
+                flex: 0 0 @logo-size;
+                height: @logo-size;
+            }
+
+            .header__contacts {
+                flex: 0 0 150px;
+                font-size: 12px;
+    
+                &__item {
+                    margin-left: -5px;
+                    margin-top: 4px;
+                }
+                &__item.number {
+                    margin-left: 5px;
+                    font-weight: bold;
+                }
+    
+                &__item:first-child {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+    .header.hidden {
+        transform: translateY(-@header-height);
+    }
+    .first-block {
+        height: @header-height;
+    }
+}

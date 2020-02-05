@@ -1,0 +1,75 @@
+@import './colors.less';
+
+.btn-link_dark,
+.btn-link_light,
+.btn_light,
+.btn_dark {
+    display: inline-block;
+    position: relative;
+    padding: 8px;
+    margin: 8px;
+    font-size: 18px;
+    transition: transform .1s ease-in-out, box-shadow .1s ease-in-out;
+    transform: translateX(0px) translateY(0px);
+    box-shadow: 5px 5px 0px @light-gray;
+
+    &:active {
+        outline: 0;
+        transform: translateX(5px) translateY(5px);
+        box-shadow: 0px 0px 0px @light-gray;    
+    }
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+.btn-link_dark.large, .btn-link_light.large, .btn_light.large, .btn_dark.large {
+    padding: 12px;
+}
+
+.btn_light, .btn_dark {
+    border: none;
+    
+}
+
+.btn_light {
+    background: @black;
+    color: @yellow;
+}
+.btn_dark {
+    background: @yellow;
+    color: @black;
+}
+
+
+.btn-link_light {
+    background: @black;
+    color: @yellow;
+    text-decoration: none;
+}
+.btn-link_dark {
+    background: @yellow;
+    color: @black;
+    text-decoration: none;
+}
+
+.btn-link_dark:hover, .btn_dark:hover {
+    background: @white;
+}
+
+.btn-link_light:hover, .btn_light:hover {
+    background: @dark-gray;
+}
+
+@media all and (max-width: 600px) {
+    .btn-link_dark, .btn-link_light {
+        padding: 4px;
+        margin: 4px;
+        font-size: 14px;
+    }
+    
+    .btn-link_dark.large, .btn-link_light.large {
+        padding: 8px;
+    }
+}

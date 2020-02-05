@@ -1,0 +1,74 @@
+@import './colors.less';
+
+.products {
+    background: white;
+    padding: 40px 0;
+
+    &__headline {
+        text-align: center;
+        padding: 40px 0;
+        font-size: 32px;
+    }
+
+    &__notification {
+        text-align: start;
+        font-size: 20px;
+        padding: 0 12px;
+
+        .strong {
+            color: @orange;
+        }
+
+        a {
+            color: @orange;
+            text-decoration: none;
+        }
+        .tel {
+            display: none;
+        }
+    }
+
+    &__item {
+        height: 400px;
+        position: relative;
+        margin-top: 24px;
+        padding: 24px;
+        box-shadow: 0 0 5px rgba(0,0,0,.75);
+        border-radius: 6px;
+
+        &__figure {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__image {
+                width: 45%;
+                height: auto;
+            }
+        }
+
+        &__description {
+            margin-top: 12px;
+            text-align: left;
+        }
+        &__controls {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            text-align: left;
+        }
+    }
+}
+
+@media all and (max-width: 600px) {
+    .products {
+        &__notification {
+            .tel {
+                display: inline;
+            }
+            .des {
+                display: none;
+            }
+        }
+    }
+}

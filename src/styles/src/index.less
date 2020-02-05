@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    background: #111;
+}
+
+// for ie
+.ie9 img[src$=".svg"] {
+    width: 100%;
+    height: 100%;
+}
+
+// либа зачем-то форсит свои отступы, поэтому пусть пока будет такое решение
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}

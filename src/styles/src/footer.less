@@ -1,0 +1,71 @@
+@import './colors.less';
+
+.footer {
+    padding: 32px;
+    background: @black;
+    color: @white;
+
+    &__headline {
+        margin-top: 32px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__form {
+        .input, .textarea {
+            border-radius: 3px;
+            border: none;
+            padding: 5px;
+            background: @white;
+            margin-top: 4px;
+        }
+        .label {
+            font-size: 16px;
+            margin-top: 8px;
+        }
+        .input {
+            margin-top: 4px;
+        }
+        .textarea {
+            height: 120px;
+        }
+        .submit {
+            margin: 0;
+            margin-top: 12px;
+        }
+        .input.error {
+            border: 2px solid red;
+            background: #fcc;
+        }
+    }
+    
+    &__contacts {
+        &__item {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .highlighted {
+            color: @yellow;
+        }
+    }
+
+    .back_btn {
+        background: url('./../../image/back.svg');
+        background-size: contain;
+        width: 50px;
+        position: absolute;
+        bottom: 50px;
+        left: 20px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .footer {
+        &__form {
+            .label {
+                font-size: 14px;
+            }
+        }
+    }
+}

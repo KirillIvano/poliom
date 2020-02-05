@@ -1,0 +1,205 @@
+@import './colors.less';
+
+.meeting {
+    position: relative;
+    width: 100%;
+    background: url('./../../image/meeting.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    &__overlay {
+        background: rgba(0, 0, 0, .75);
+        padding: 120px 0;
+
+        .meeting__column {
+            color: @white;
+            opacity: 0;
+            transform: translateX(-50px);
+
+            .meeting__headline {
+                font-weight: bold;
+                font-size: 42px;
+            }
+            .meeting__description {
+                margin-top: 32px;
+                font-size: 32px;
+            }
+            .meeting__controls {
+                margin-top: 80px;
+                display: flex;
+            }
+        }
+
+        .meeting__column.appeared {
+            opacity: 1;
+            transform: translateX(0px);
+            transition: opacity .3s ease-in-out,
+                        transform .3s ease-in-out;
+        }
+    }
+}
+
+.offer {
+    background: @white;
+    color: @black;
+    text-align: start;
+    padding: 40px 12px;
+
+    &__headline {
+        text-align: center;
+        padding: 12px 0;
+        font-size: 32px;
+    }
+
+    &__article {
+        text-align: start;
+        &__text {
+            margin-top: 24px;
+            color: @black;
+            font-size: 16px;
+        }
+        &__image {
+            margin: 32px 0;
+            width: 100%;
+        }
+        .color-types {
+            display: flex;
+            justify-content: space-around;
+
+            .color-type {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+            .color-type.gray {
+                background: #C4C4C4;
+                border: 1px solid @black;
+            }
+            .color-type.black {
+                background: @black;
+            }
+            .color-type.white {
+                background: @white;
+                border: 1px solid @black;
+            }
+        }
+        &__text.highlighted {
+            font-weight: bold;
+        }
+    }
+
+    &__controls {
+        margin-top: 40px;
+    }
+}
+
+.advantages {
+    color: @white;
+    &__headline {
+        text-align: center;
+        padding: 32px 0;
+        font-size: 32px;
+        background: @black;
+    }
+
+    .advantage {
+        background: @black;
+        display: flex;
+        padding: 32px 0px;
+        .advantage__img-container {
+            text-align: end;
+            .advantage__img {
+                width: 80px;
+                margin: 0 10px;
+            }
+        }
+
+        &__content {
+            padding: 16px;
+            opacity: 0;
+            transform: translateY(32px);
+
+            .advantage__headline {
+                text-align: start;
+            }
+            .advantage__description {
+                margin-top: 16px;
+                text-align: start;
+            }
+            .strong {
+                color: @yellow;
+                font-weight: bold;
+            }
+        }
+
+        .advantage__img-container, .advantage__content {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+    }
+
+    .advantage.appeared {
+        .advantage__img-container, .advantage__content {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: opacity .3s ease-in-out,
+                        transform .3s ease-in-out;    
+        }
+    }
+
+    .advantage:nth-child(2n) {
+        background: @dark-gray;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .meeting {
+        &__overlay {
+            padding: 80px 8%;
+            .meeting__column {
+
+                .meeting__headline {
+                    font-size: 32px;
+                }
+                .meeting__description {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .offer {
+        &__headline {
+            font-size: 24px;
+        }
+    }
+
+    .advantages {
+        color: @white;
+    
+        .advantages__headline {
+            text-align: center;
+            padding: 32px 0;
+            font-size: 24px;
+        }
+    
+        .advantage {
+            .advantage__img-container {
+                text-align: center;
+            }
+    
+            &__content {    
+                .advantage__headline {
+                    font-size: 18px;
+                    text-align: start;
+                }
+                .advantage__description {
+                    font-size: 16px;
+                    margin-top: 10px;
+                    text-align: start;
+                }
+            }
+        }
+    }
+}
