@@ -39,7 +39,7 @@ const prod = {
                 ],
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|svg|jpg|ico)$/,
                 use: [
                     {
                         loader: 'file-loader',

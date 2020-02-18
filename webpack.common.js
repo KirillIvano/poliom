@@ -2,6 +2,23 @@ const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
+const generateHttpPluginInstances = pages =>
+    pages.map(
+        pagename => new HtmlPlugin({
+            template: path.resolve(__dirname, 'src', pagename),
+            filename: pagename,
+            favicon: path.resolve(__dirname, 'src', 'image', 'favicon.ico'),
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+        }),
+    );
+
 const common = {
     entry: {
         common: './src/common.js',
@@ -14,31 +31,7 @@ const common = {
     },
     plugins: [
         // сплитим на две страницы
-        new HtmlPlugin({
-            template: path.resolve(__dirname, 'src', 'index.html'),
-            filename: 'index.html',
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeRedundantAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                useShortDoctype: true,
-            },
-        }),
-        new HtmlPlugin({
-            template: path.resolve(__dirname, 'src', 'products.html'),
-            filename: 'products.html',
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeRedundantAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                useShortDoctype: true,
-            },
-        }),
-
+        ...generateHttpPluginInstances(['index.html', 'products.html']),
         new CleanWebpackPlugin(),
     ],
     resolve: {
